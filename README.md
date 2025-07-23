@@ -33,4 +33,7 @@ If using Docker Compose:
 docker-compose up
 
 🏅 Badges
-Python Docker License Last Commit Build Status Issues
+
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)![Docker](https://img.shields.io/badge/Dockerized-%F0%9F%90%AB-blue?logo=docker) ![License](https://img.shields.io/github/license/jcmoyongo/thumbnails) 
+![Last Commit](https://img.shields.io/github/last-commit/jcmoyongo/thumbnails) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen) ![Issues](https://img.shields.io/github/issues/jcmoyongo/thumbnails)
+
