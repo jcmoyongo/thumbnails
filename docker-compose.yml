@@ -1,0 +1,11 @@
+services:
+  thumbnails_app:
+    # image: python
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - /c/Users/jeanc/thumb_nails:/mnt/thumb_nails
+    command: python thumb_nails.py  
+
+

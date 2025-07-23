@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Job
+metadata:
+  name: thumbnails-job
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: thumbnails-app
+  template:
+    metadata:
+      labels:
+        app: thumbnails-app
+    spec:
+      containers:
+      - name: thumbnails-app
+        image: thumb_nails
+        ports:
+        - containerPort: 8000
