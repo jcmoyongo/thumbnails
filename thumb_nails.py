@@ -7,76 +7,8 @@ import asyncio
 import uuid
 import traceback
 
-# def create_thumbnails(input_folder, output_folder, size=(128, 128)):
-#     """
-#     Creates thumbnails for JPG and JPEG images in a folder.
 
-#     Args:
-#         input_folder (str): The path to the folder containing images.
-#         output_folder (str): The path to the folder where thumbnails will be saved.
-#         size (tuple): The size of the thumbnail (width, height).
-#     """
-
-#     # Create the output folder if it doesn't exist
-#     if not os.path.exists(output_folder):
-#         os.makedirs(output_folder)
-
-#     for filename in os.listdir(input_folder):
-#         if filename.lower().endswith((".jpg", ".jpeg")):
-#             try:
-#                 # Open the image
-#                 img_path = os.path.join(input_folder, filename)
-#                 img = Image.open(img_path)
-
-#                 # Create a thumbnail
-#                 img.thumbnail(size)
-
-#                 # Save the thumbnail
-#                 thumbnail_path = os.path.join(output_folder, f"thumbnail_{filename}")
-#                 img.save(thumbnail_path)
-
-#                 print(f"Created thumbnail for {filename}")
-
-#             except Exception as e:
-#                 print(f"Error processing {filename}: {e}")
-
-
-# def create_thumbnails_from_api(output_folder, num_images=5, size=(128, 128)):
-#     """
-#     Creates thumbnails for N random images from a public image API.
-
-#     Args:
-#         output_folder (str): The path to the folder where thumbnails will be saved.
-#         num_images (int): The number of random images to fetch.
-#         size (tuple): The size of the thumbnail (width, height).
-#     """
-    
-#     # Create the output folder if it doesn't exist
-#     if not os.path.exists(output_folder):
-#         os.makedirs(output_folder)
-
-#     for i in range(num_images):
-#         try:
-#             # Fetch a random image from Lorem Picsum
-#             response = requests.get(f"https://picsum.photos/200/200?random={i}")
-#             response.raise_for_status()  # Raise an error for bad responses
-
-#             # Open the image from the response content
-#             img = Image.open(BytesIO(response.content))
-
-#             # Create a thumbnail
-#             img.thumbnail(size)
-
-#             # Save the thumbnail
-#             thumbnail_path = os.path.join(output_folder, f"thumbnail_{i}.jpg")
-#             img.save(thumbnail_path)
-
-#             print(f"Created thumbnail for image {i + 1}")
-
-#         except Exception as e:
-#             print(f"Error processing image {i + 1}: {e}")
-
-
+# Function to diagnose thumbnail saving issues
 def diagnose_thumbnail_save(thumbnail, output_folder, filename):
     # Ensure directory exists
     if not os.path.exists(output_folder):
@@ -159,14 +91,10 @@ async def create_thumbnails_from_api_async(output_folder, num_images=5, size=(12
             #Because of the volume mount, anything written to app/thumb_nails inside the container is actually written to the local directory
             # docker run -v C:/Users/jeanc/OneDrive/Projects/Study/thumb-nails/output_thumb_nails:/app/thumb_nails -it --rm thumb_nails /bin/bash
             try:
-                # with open(os.path.join(output_folder,f"test_write_{i}.txt"), "w") as f:
-                #     f.write("Testing write from container!")
-                #     print("✅ test_write.txt created in", output_folder)
-
+                # Save the thumbnail
                 thumbnail.save(thumbnail_path, "JPEG")  # Save the thumbnail as JPEG
                 print(f"Created thumbnail for image {i + 1} in {thumbnail_path}")
 
-                # diagnose_thumbnail_save(thumbnails[i], output_folder, f"thumbnail_{i+1}_{name_part}.jpg")
             except Exception as e:
                 print(f"Error saving thumbnail: {e}")
                 traceback.print_exc()
