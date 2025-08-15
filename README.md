@@ -3,24 +3,39 @@ Creates thumbnails of a given JPEG image.
 🐳 Python Docker Project
 A lightweight, containerized Python application built for easy deployment and local development.
 
+## Technical Stack
+
+- **Main Language**: Python
+- **Dependency Management**: `requirements.txt` (pip)
+- **Key Python Libraries**:
+  - Pillow (image processing)
+  - aiohttp, asyncio (asynchronous operations)
+  - requests (HTTP requests)
+  - msal (Microsoft authentication)
+- **Infrastructure as Code**: Terraform (`.tf`)
+  - Azure Resource Manager (azurerm)
+  - random provider
+- **Containerization**:
+  - Docker (`Dockerfile`, `docker-compose.yml`, `docker-compose.debug.yml`)
+- **Orchestration**:
+  - Docker Compose
+  - Kubernetes Job (`deployment.yaml`)
+- **Cloud**:
+  - Azure Storage
+  - Azure Container Registry
+  - Azure Container Apps
+- **CI/CD & Deployment**:
+  - YAML files for deployment
+- **Other**:
+  - Docker volumes for persistence
+  - Environment and access management via MSAL
+
 📦 Features
 - Containerized with Docker for platform independence
 - Python 3.13.5 with modular script design
 - VSCode integration for seamless editing and debugging
 - Async task handling, thumbnail generation, etc.
 
-🚀 Getting Started
-
-Requirements
-- Docker
-- (Optional) Docker Compose
-- VSCode with the Docker extension
-Build and Run
-🚀 Getting Started
-Requirements
-- Docker
-- (Optional) Docker Compose
-- VSCode with the Docker extension
   
 Build and Run
 # Build Docker image
