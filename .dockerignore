@@ -25,3 +25,16 @@
 **/values.dev.yaml
 LICENSE
 README.md
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.db
+vscode/
+.git/
+.gitignore
+tests/
+docs/
+*.jpg
+*.png
+*.bmp

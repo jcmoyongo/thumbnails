@@ -29,5 +29,5 @@ USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 #CMD ["python", "thumb_nails.py"]
-CMD ["sh", "-c", "python thumb_nails.py && sleep 3600"]
+CMD ["sh", "-c", "python thumb_nails.py"]
 

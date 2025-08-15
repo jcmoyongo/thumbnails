@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+*.log
+*.sqlite3
+docker-volumes/
+.vscode/
+__init__.py

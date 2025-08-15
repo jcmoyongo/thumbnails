@@ -159,13 +159,12 @@ async def create_thumbnails_from_api_async(output_folder, num_images=5, size=(12
             #Because of the volume mount, anything written to app/thumb_nails inside the container is actually written to the local directory
             # docker run -v C:/Users/jeanc/OneDrive/Projects/Study/thumb-nails/output_thumb_nails:/app/thumb_nails -it --rm thumb_nails /bin/bash
             try:
-                with open(os.path.join(output_folder,f"test_write_{i}.txt"), "w") as f:
-                    f.write("Testing write from container!")
-                    print("✅ test_write.txt created in", output_folder)
+                # with open(os.path.join(output_folder,f"test_write_{i}.txt"), "w") as f:
+                #     f.write("Testing write from container!")
+                #     print("✅ test_write.txt created in", output_folder)
 
                 thumbnail.save(thumbnail_path, "JPEG")  # Save the thumbnail as JPEG
-                #print(f"Created thumbnail for image {i + 1} in {thumbnail_path}")
-                print("✅ PIL successfully saved thumbnail to", thumbnail_path)
+                print(f"Created thumbnail for image {i + 1} in {thumbnail_path}")
 
                 # diagnose_thumbnail_save(thumbnails[i], output_folder, f"thumbnail_{i+1}_{name_part}.jpg")
             except Exception as e:
@@ -179,7 +178,8 @@ inside_container = os.path.exists("/mnt/thumb_nails")
 if inside_container:
     output_folder = "/mnt/thumb_nails"
 else:
-    output_folder = r"C:/Users/jeanc/thumb_nails"
+    output_folder = r"C:\Users\jeanc\thumb_nails"
+
 print(f"🔍 Running {'inside' if inside_container else 'outside'} container. Output folder: {output_folder}")
 
 if not os.path.exists(output_folder):
